@@ -6,6 +6,7 @@
 
 - **Mindig a `main` branchbe dolgozz.** Ne hozz létre külön feature branchet, kivéve ha kifejezetten kérik.
 - Commitold és pushold a kész munkát a `main`-be.
+- **Amikor kész a feladat, csak minimális összefoglalót adj.** Ne részletezd túl, néhány lényegre törő mondat elég.
 
 ## Microsite-ok
 
