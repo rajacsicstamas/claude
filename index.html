@@ -1,10 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiztosBirtok – Ingyenes Biztonsági Felmérés | Alfa Biztosító</title>
+  <style>
+    :root {
+      --primary: #0b3d91;
+      --accent: #ff6b35;
+      --light: #f4f7fb;
+      --dark: #0a1f44;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--light);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), #1a5fc4);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+    header p.subtitle {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 10px auto 30px;
+      opacity: 0.95;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(255,107,53,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(255,107,53,0.55);
+    }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(11,61,145,0.08);
+      border-top: 4px solid var(--accent);
+    }
+    .card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .checklist {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 4px 16px rgba(11,61,145,0.08);
+    }
+    .checklist ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .checklist li {
+      padding-left: 28px;
+      position: relative;
+    }
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .timeline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .timeline .step {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(11,61,145,0.08);
+      position: relative;
+    }
+    .timeline .step .month {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .booking {
+      background: linear-gradient(135deg, var(--primary), #1a5fc4);
+      color: #fff;
+      border-radius: 16px;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .booking h2 { color: #fff; }
+    .booking p { max-width: 600px; margin: 0 auto 30px; opacity: 0.95; }
+    .price-note {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.15);
+      padding: 10px 22px;
+      border-radius: 30px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #6b7a99;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
+
+  <header>
+    <div class="badge">ÚJ SZOLGÁLTATÁS · INDULÁS: 2027. FEBRUÁR 1.</div>
+    <h1>Biztos, hogy érvényes a biztosítása?</h1>
+    <p class="subtitle">
+      Az Alfa Biztosító ingyenes, helyszíni szakértői ellenőrzéssel garantálja,
+      hogy otthona valóban megfelel a kötvényében foglalt feltételeknek –
+      mielőtt egy kár esetén ez derülne ki.
+    </p>
+    <a href="#foglalas" class="cta-btn">Ingyenes időpont foglalása</a>
+  </header>
+
+  <section>
+    <h2>Miért fontos ez?</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">📋</div>
+        <h3>Az apróbetűs rész számít</h3>
+        <p>Sok kötvény tartalmaz olyan feltételeket (rács, zár, riasztó, stb.),
+        amelyek hiánya esetén kár esetén a biztosító elutasíthatja a kifizetést –
+        akár évek óta fizetett díj ellenére.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧐</div>
+        <h3>Helyszíni szakértői átvilágítás</h3>
+        <p>Megbízott szakértőnk személyesen felkeresi otthonát, és pontról pontra
+        végigveszi az összes feltételt, amelytől a biztosítás érvénytelenné válhat.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📝</div>
+        <h3>Konkrét teendőlista</h3>
+        <p>A felmérés végén egy egyszerű, érthető listát kap arról, mit kell
+        megoldania ahhoz, hogy biztosítása minden körülmények között érvényes legyen.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>Nyugalom, garanciával</h3>
+        <p>Ha a listán szereplő pontokat rendben tartja, biztos lehet benne, hogy
+        kár esetén nem érheti meglepetés a kötvény feltételei miatt.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Mit ellenőrzünk a helyszínen?</h2>
+    <div class="checklist">
+      <p>Szakértőnk a teljes ingatlant átvilágítja, az alábbiakhoz hasonló
+      szempontok szerint – a lista a konkrét kötvénytől függően bővül:</p>
+      <ul>
+        <li>Földszinti ablakok rácsozása</li>
+        <li>Bejárati ajtó zárainak biztonsági szintje</li>
+        <li>Riasztó- és tűzjelző rendszer megléte, állapota</li>
+        <li>Tetőszerkezet, ereszcsatorna állapota</li>
+        <li>Elektromos hálózat és biztosítótáblák állapota</li>
+        <li>Gáz- és vízvezetékek megfelelősége</li>
+        <li>Kerítés, kapuk, melléképületek zárhatósága</li>
+        <li>Vagyontárgyak tárolási körülményei</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hogyan tovább?</h2>
+    <div class="timeline">
+      <div class="step">
+        <div class="month">jan</div>
+        <h3>Kampányindulás</h3>
+        <p>Tájékoztatjuk meglévő ügyfeleinket, és megnyitjuk az időpontfoglalást.</p>
+      </div>
+      <div class="step">
+        <div class="month">feb</div>
+        <h3>Szolgáltatás indulása</h3>
+        <p>Szakértőink megkezdik a helyszíni felméréseket – kezdetben ingyenesen.</p>
+      </div>
+      <div class="step">
+        <div class="month">⏳</div>
+        <h3>Korlátozott helyek</h3>
+        <p>A korlátozott férőhelyek miatt érdemes minél előbb időpontot foglalni.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="foglalas">
+    <div class="booking">
+      <h2>Foglaljon ingyenes időpontot szakértőnkkel</h2>
+      <p>
+        Tudja meg, megfelel-e otthona a biztosítási feltételeknek – egyszerűen,
+        gyorsan, kötelezettség nélkül. Az ingyenes felmérés a szabad helyek
+        erejéig elérhető.
+      </p>
+      <a href="#" class="cta-btn">Időpont foglalása</a>
+      <div class="price-note">Jelenleg <strong>ingyenes</strong> – a szabad helyek számának betelééig</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Alfa Biztosító. Minden jog fenntartva. | Ez egy bemutató mikrosite, a végleges terméknév hamarosan érkezik.
+  </footer>
+
 </body>
 </html>
