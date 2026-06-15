@@ -1,282 +1,883 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BiztosBirtok – Ingyenes Biztonsági Felmérés | Alfa Biztosító</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b3d91" />
+  <meta name="description" content="Az Alfa Biztosító ingyenes, helyszíni szakértői otthonfelmérése: kiderül, valóban érvényes-e a biztosítása, és pontos listát kap arról, mit kell rendbe tennie. Indulás február 1." />
+  <meta property="og:title" content="Ingyenes otthonfelmérés – Alfa Biztosító" />
+  <meta property="og:description" content="Mielőtt egy kár esetén derülne ki: szakértőnk helyszínen ellenőrzi, hogy otthona megfelel-e a kötvény feltételeinek." />
+  <meta property="og:type" content="website" />
+  <title>Ingyenes otthonfelmérés – Alfa Biztosító</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6 12 22v26c0 24 16 38 38 46 22-8 38-22 38-46V22z' fill='%230b3d91'/%3E%3Cpath d='M38 50l9 9 18-20' fill='none' stroke='%23ffb23e' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
   <style>
     :root {
       --primary: #0b3d91;
-      --accent: #ff6b35;
-      --light: #f4f7fb;
-      --dark: #0a1f44;
+      --primary-dark: #07295f;
+      --primary-light: #1a5fc4;
+      --accent: #ff7a2e;
+      --accent-soft: #fff0e7;
+      --gold: #ffb23e;
+      --ink: #11203f;
+      --muted: #5b6b88;
+      --line: #e4eaf3;
+      --bg: #f5f8fc;
+      --white: #ffffff;
+      --radius: 16px;
+      --shadow-sm: 0 4px 18px rgba(11, 61, 145, 0.07);
+      --shadow-md: 0 12px 38px rgba(11, 61, 145, 0.12);
+      --maxw: 1120px;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: var(--dark);
-      line-height: 1.6;
-      background: var(--light);
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      color: var(--ink);
+      line-height: 1.65;
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      background: linear-gradient(135deg, var(--primary), #1a5fc4);
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
+
+    a { color: inherit; }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
     }
-    header .badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-    }
-    header h1 {
-      font-size: 2.6rem;
-      margin-bottom: 10px;
-    }
-    header p.subtitle {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 10px auto 30px;
-      opacity: 0.95;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: 16px 40px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      border-radius: 12px;
+      font-size: 1.02rem;
+      font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(255,107,53,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
       border: none;
       cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      font-family: inherit;
     }
-    .cta-btn:hover {
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 26px rgba(255, 122, 46, 0.38);
+    }
+    .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 26px rgba(255,107,53,0.55);
+      box-shadow: 0 14px 34px rgba(255, 122, 46, 0.5);
     }
-    section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 60px 20px;
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
     }
-    h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 30px;
-    }
-    .card {
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.22); }
+    .btn-light {
       background: #fff;
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 4px 16px rgba(11,61,145,0.08);
-      border-top: 4px solid var(--accent);
-    }
-    .card .icon {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-    }
-    .card h3 {
       color: var(--primary);
-      margin-bottom: 10px;
-      font-size: 1.2rem;
+      box-shadow: var(--shadow-sm);
     }
-    .checklist {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px 40px;
-      box-shadow: 0 4px 16px rgba(11,61,145,0.08);
+    .btn-light:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    /* ---------- Top nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
     }
-    .checklist ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
     }
-    .checklist li {
-      padding-left: 28px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.12rem;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .brand .logo {
+      width: 34px;
+      height: 34px;
+      flex: none;
+    }
+    .brand small {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a:not(.btn) {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.15s;
+    }
+    .nav-links a:not(.btn):hover { color: var(--primary); }
+    .nav-cta { padding: 11px 22px; font-size: 0.95rem; }
+    @media (max-width: 820px) {
+      .nav-links a:not(.btn) { display: none; }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
       position: relative;
+      background: radial-gradient(1200px 600px at 75% -10%, #1f6ad4 0%, transparent 60%),
+                  linear-gradient(150deg, var(--primary-dark) 0%, var(--primary) 55%, var(--primary-light) 100%);
+      color: #fff;
+      overflow: hidden;
     }
-    .checklist li::before {
-      content: "✓";
+    .hero::after {
+      content: "";
       position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 1.2rem;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
     }
-    .timeline {
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      padding: 76px 0 92px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 22px;
+    }
+    .pill .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(255, 178, 62, 0.25);
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.6vw, 3.35rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+    .hero h1 .hl { color: var(--gold); }
+    .hero p.lead {
+      font-size: 1.18rem;
+      opacity: 0.94;
+      max-width: 560px;
+      margin-bottom: 30px;
+    }
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      gap: 14px;
+      align-items: center;
     }
-    .timeline .step {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px;
-      flex: 1;
-      min-width: 200px;
+    .hero-note {
+      margin-top: 22px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Hero card */
+    .hero-card {
+      background: rgba(255, 255, 255, 0.98);
+      color: var(--ink);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 30px 60px rgba(4, 18, 50, 0.4);
+    }
+    .hero-card h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .hero-card .row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-card .row:last-child { border-bottom: none; }
+    .hero-card .tick {
+      flex: none;
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid; place-items: center;
+      font-weight: 800;
+    }
+    .hero-card .row span { font-weight: 600; font-size: 0.97rem; }
+    .hero-card .row b { display:block; font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 64px; }
+      .hero-card { order: 2; }
+    }
+
+    /* ---------- Trust strip ---------- */
+    .trust {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+    .trust-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 28px 0;
       text-align: center;
-      box-shadow: 0 4px 16px rgba(11,61,145,0.08);
-      position: relative;
     }
-    .timeline .step .month {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-      font-weight: bold;
+    .trust .num { font-size: 1.7rem; font-weight: 800; color: var(--primary); }
+    .trust .lbl { font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    @media (max-width: 720px) {
+      .trust-inner { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    }
+
+    /* ---------- Section base ---------- */
+    section.block { padding: 84px 0; }
+    .eyebrow {
+      text-align: center;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
-    .booking {
-      background: linear-gradient(135deg, var(--primary), #1a5fc4);
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 50px;
+      font-size: 1.06rem;
+    }
+
+    /* ---------- Why / cards ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .card .ic {
+      width: 52px; height: 52px;
+      border-radius: 13px;
+      display: grid; place-items: center;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--accent-soft), #ffe3d2);
+      margin-bottom: 18px;
+    }
+    .card h3 { font-size: 1.18rem; margin-bottom: 9px; color: var(--ink); }
+    .card p { color: var(--muted); font-size: 0.97rem; }
+
+    /* ---------- How it works ---------- */
+    .how { background: var(--white); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      counter-reset: step;
+    }
+    .step-c {
+      position: relative;
+      padding: 34px 26px 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fbfdff, #fff);
+    }
+    .step-c .n {
+      counter-increment: step;
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: var(--primary);
       color: #fff;
-      border-radius: 16px;
-      text-align: center;
-      padding: 50px 20px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      display: grid; place-items: center;
+      margin-bottom: 18px;
     }
-    .booking h2 { color: #fff; }
-    .booking p { max-width: 600px; margin: 0 auto 30px; opacity: 0.95; }
+    .step-c .n::before { content: counter(step); }
+    .step-c h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .step-c p { color: var(--muted); font-size: 0.97rem; }
+    @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+
+    /* ---------- Checklist ---------- */
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .check-panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: var(--shadow-md);
+    }
+    .check-panel ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .check-panel li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+    .check-panel li .cb {
+      flex: none;
+      width: 24px; height: 24px;
+      border-radius: 7px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid; place-items: center;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+    .check-copy h2 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .check-copy p { color: var(--muted); margin-bottom: 16px; font-size: 1.04rem; }
+    .check-copy .micro { font-size: 0.9rem; color: var(--muted); font-style: italic; }
+    @media (max-width: 860px) { .check-grid { grid-template-columns: 1fr; gap: 30px; } }
+
+    /* ---------- Timeline ---------- */
+    .timeline { background: var(--white); }
+    .tl {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .tl-c {
+      background: linear-gradient(180deg, #fbfdff, #fff);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tl-c .when {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .tl-c h3 { font-size: 1.18rem; margin-bottom: 8px; }
+    .tl-c p { color: var(--muted); font-size: 0.97rem; }
+    @media (max-width: 800px) { .tl { grid-template-columns: 1fr; } }
+
+    /* ---------- FAQ ---------- */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+    details.faq {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 4px 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    details.faq summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 0;
+      font-weight: 700;
+      font-size: 1.03rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: var(--accent);
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+    details.faq[open] summary::after { transform: rotate(45deg); }
+    details.faq p {
+      color: var(--muted);
+      padding: 0 0 20px;
+      font-size: 0.99rem;
+    }
+
+    /* ---------- Booking CTA ---------- */
+    .booking { padding: 88px 0; }
+    .booking-card {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(900px 400px at 80% -20%, #2a74da 0%, transparent 55%),
+                  linear-gradient(140deg, var(--primary-dark), var(--primary) 60%, var(--primary-light));
+      color: #fff;
+      border-radius: 26px;
+      padding: 64px 40px;
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(4, 18, 50, 0.35);
+    }
+    .booking-card::after {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
+    }
+    .booking-card h2 {
+      position: relative;
+      font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .booking-card p {
+      position: relative;
+      max-width: 580px;
+      margin: 0 auto 30px;
+      opacity: 0.95;
+      font-size: 1.1rem;
+    }
+    .booking-actions { position: relative; }
     .price-note {
-      display: inline-block;
-      margin-top: 20px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
       font-size: 0.95rem;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255,255,255,0.22);
       padding: 10px 22px;
-      border-radius: 30px;
+      border-radius: 999px;
     }
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: #6b7a99;
-      font-size: 0.9rem;
+    .toast {
+      position: relative;
+      max-width: 460px;
+      margin: 18px auto 0;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      display: none;
     }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      h2 { font-size: 1.5rem; }
+    .toast.show { display: block; animation: fade 0.3s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px);} to {opacity:1;transform:none;} }
+
+    /* ---------- Footer ---------- */
+    footer.site {
+      background: var(--ink);
+      color: #c6d2e8;
+      padding: 52px 0 30px;
+    }
+    .foot-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .foot-brand { max-width: 360px; }
+    .foot-brand .brand { color: #fff; margin-bottom: 12px; }
+    .foot-brand p { font-size: 0.92rem; color: #93a3c2; }
+    .foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }
+    .foot-cols h5 { color: #fff; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; }
+    .foot-cols a { display: block; color: #a9b7d3; text-decoration: none; font-size: 0.92rem; margin-bottom: 9px; }
+    .foot-cols a:hover { color: #fff; }
+    .foot-bottom {
+      padding-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: #8294b6;
+    }
+    .working-title {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      background: rgba(255,255,255,0.08);
+      padding: 4px 12px;
+      border-radius: 8px;
+      color: #c6d2e8;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="badge">ÚJ SZOLGÁLTATÁS · INDULÁS: 2027. FEBRUÁR 1.</div>
-    <h1>Biztos, hogy érvényes a biztosítása?</h1>
-    <p class="subtitle">
-      Az Alfa Biztosító ingyenes, helyszíni szakértői ellenőrzéssel garantálja,
-      hogy otthona valóban megfelel a kötvényében foglalt feltételeknek –
-      mielőtt egy kár esetén ez derülne ki.
-    </p>
-    <a href="#foglalas" class="cta-btn">Ingyenes időpont foglalása</a>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#">
+        <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 6 12 22v26c0 24 16 38 38 46 22-8 38-22 38-46V22z" fill="#0b3d91"/>
+          <path d="M38 50l9 9 18-20" fill="none" stroke="#ffb23e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Alfa Biztosító<small>Otthonfelmérés</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#miert">Miért fontos</a>
+        <a href="#folyamat">Hogyan működik</a>
+        <a href="#ellenorzes">Mit ellenőrzünk</a>
+        <a href="#gyik">GYIK</a>
+        <a href="#foglalas" class="btn btn-primary nav-cta">Időpontfoglalás</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>Miért fontos ez?</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="icon">📋</div>
-        <h3>Az apróbetűs rész számít</h3>
-        <p>Sok kötvény tartalmaz olyan feltételeket (rács, zár, riasztó, stb.),
-        amelyek hiánya esetén kár esetén a biztosító elutasíthatja a kifizetést –
-        akár évek óta fizetett díj ellenére.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="pill"><span class="dot"></span> ÚJ SZOLGÁLTATÁS · INDULÁS: FEBRUÁR 1.</span>
+        <h1>Biztos benne, hogy <span class="hl">valóban érvényes</span> az otthonbiztosítása?</h1>
+        <p class="lead">
+          Sok kötvény apróbetűs feltételeket rejt – egy hiányzó ablakrács vagy nem
+          megfelelő zár miatt a biztosító kár esetén elutasíthatja a kifizetést.
+          Az Alfa Biztosító szakértője helyszínen, ingyenesen ellenőrzi otthonát,
+          és pontos listát ad arról, mit kell rendbe tennie.
+        </p>
+        <div class="hero-actions">
+          <a href="#foglalas" class="btn btn-primary">Ingyenes időpont foglalása →</a>
+          <a href="#folyamat" class="btn btn-ghost">Hogyan működik?</a>
+        </div>
+        <div class="hero-note">
+          🔒 Meglévő ügyfeleinknek · Kötelezettségmentes · A szabad helyek erejéig ingyenes
+        </div>
       </div>
-      <div class="card">
-        <div class="icon">🧐</div>
-        <h3>Helyszíni szakértői átvilágítás</h3>
-        <p>Megbízott szakértőnk személyesen felkeresi otthonát, és pontról pontra
-        végigveszi az összes feltételt, amelytől a biztosítás érvénytelenné válhat.</p>
-      </div>
-      <div class="card">
-        <div class="icon">📝</div>
-        <h3>Konkrét teendőlista</h3>
-        <p>A felmérés végén egy egyszerű, érthető listát kap arról, mit kell
-        megoldania ahhoz, hogy biztosítása minden körülmények között érvényes legyen.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🛡️</div>
-        <h3>Nyugalom, garanciával</h3>
-        <p>Ha a listán szereplő pontokat rendben tartja, biztos lehet benne, hogy
-        kár esetén nem érheti meglepetés a kötvény feltételei miatt.</p>
-      </div>
+
+      <aside class="hero-card" aria-label="A felmérés menete">
+        <h4>A felmérés 3 lépésben</h4>
+        <div class="row">
+          <div class="tick">1</div>
+          <span>Időpontfoglalás<b>Online, néhány kattintással</b></span>
+        </div>
+        <div class="row">
+          <div class="tick">2</div>
+          <span>Helyszíni átvizsgálás<b>Szakértőnk pontról pontra ellenőriz</b></span>
+        </div>
+        <div class="row">
+          <div class="tick">3</div>
+          <span>Személyre szabott teendőlista<b>Érthető lista a megoldandó pontokról</b></span>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section>
-    <h2>Mit ellenőrzünk a helyszínen?</h2>
-    <div class="checklist">
-      <p>Szakértőnk a teljes ingatlant átvilágítja, az alábbiakhoz hasonló
-      szempontok szerint – a lista a konkrét kötvénytől függően bővül:</p>
-      <ul>
-        <li>Földszinti ablakok rácsozása</li>
-        <li>Bejárati ajtó zárainak biztonsági szintje</li>
-        <li>Riasztó- és tűzjelző rendszer megléte, állapota</li>
-        <li>Tetőszerkezet, ereszcsatorna állapota</li>
-        <li>Elektromos hálózat és biztosítótáblák állapota</li>
-        <li>Gáz- és vízvezetékek megfelelősége</li>
-        <li>Kerítés, kapuk, melléképületek zárhatósága</li>
-        <li>Vagyontárgyak tárolási körülményei</li>
-      </ul>
+  <!-- TRUST STRIP -->
+  <div class="trust">
+    <div class="wrap trust-inner">
+      <div><div class="num">0 Ft</div><div class="lbl">A felmérés díja induláskor</div></div>
+      <div><div class="num">100%</div><div class="lbl">Kötvényfeltételek átvizsgálva</div></div>
+      <div><div class="num">1–2 óra</div><div class="lbl">Egy átlagos helyszíni felmérés</div></div>
+      <div><div class="num">Feb. 1.</div><div class="lbl">A szolgáltatás indulása</div></div>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>Hogyan tovább?</h2>
-    <div class="timeline">
-      <div class="step">
-        <div class="month">jan</div>
-        <h3>Kampányindulás</h3>
-        <p>Tájékoztatjuk meglévő ügyfeleinket, és megnyitjuk az időpontfoglalást.</p>
-      </div>
-      <div class="step">
-        <div class="month">feb</div>
-        <h3>Szolgáltatás indulása</h3>
-        <p>Szakértőink megkezdik a helyszíni felméréseket – kezdetben ingyenesen.</p>
-      </div>
-      <div class="step">
-        <div class="month">⏳</div>
-        <h3>Korlátozott helyek</h3>
-        <p>A korlátozott férőhelyek miatt érdemes minél előbb időpontot foglalni.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="foglalas">
-    <div class="booking">
-      <h2>Foglaljon ingyenes időpontot szakértőnkkel</h2>
-      <p>
-        Tudja meg, megfelel-e otthona a biztosítási feltételeknek – egyszerűen,
-        gyorsan, kötelezettség nélkül. Az ingyenes felmérés a szabad helyek
-        erejéig elérhető.
+  <!-- WHY -->
+  <section class="block" id="miert">
+    <div class="wrap">
+      <p class="eyebrow">Miért érdemes</p>
+      <h2 class="section-title">Az apróbetűs rész akkor derül ki, amikor a legrosszabbkor</h2>
+      <p class="section-sub">
+        Egy kár bekövetkezésekor a biztosító ellenőrzi, hogy teljesültek-e a kötvény
+        feltételei. Ne akkor szembesüljön a hiányosságokkal – előzzük meg együtt.
       </p>
-      <a href="#" class="cta-btn">Időpont foglalása</a>
-      <div class="price-note">Jelenleg <strong>ingyenes</strong> – a szabad helyek számának betelééig</div>
+      <div class="cards">
+        <div class="card">
+          <div class="ic">📋</div>
+          <h3>Az apróbetűs rész számít</h3>
+          <p>A kötvények gyakran rejtenek olyan kikötéseket – rács, biztonsági zár,
+          riasztó –, amelyek hiánya esetén évek díjfizetése után is elutasítható a kár.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🔍</div>
+          <h3>Helyszíni szakértői átvilágítás</h3>
+          <p>Megbízott szakértőnk személyesen felkeresi otthonát, és sorra veszi
+          minden olyan feltételt, amelytől a biztosítás érvénytelenné válhat.</p>
+        </div>
+        <div class="card">
+          <div class="ic">✅</div>
+          <h3>Konkrét, érthető teendőlista</h3>
+          <p>A felmérés végén egyszerű listát kap arról, pontosan mit kell megoldania
+          ahhoz, hogy kötvénye minden körülmények között érvényes maradjon.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🛡️</div>
+          <h3>Nyugalom, bizonyossággal</h3>
+          <p>Ha a listán szereplő pontokat rendben tartja, biztos lehet benne, hogy
+          kár esetén nem éri meglepetés a kötvényfeltételek miatt.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    &copy; 2026 Alfa Biztosító. Minden jog fenntartva. | Ez egy bemutató mikrosite, a végleges terméknév hamarosan érkezik.
+  <!-- HOW IT WORKS -->
+  <section class="block how" id="folyamat">
+    <div class="wrap">
+      <p class="eyebrow">A folyamat</p>
+      <h2 class="section-title">Egyszerű, három lépésben</h2>
+      <p class="section-sub">Nincs papírmunka és nincs kötelezettség – csak tiszta kép arról, hol áll a biztosítása.</p>
+      <div class="steps">
+        <div class="step-c">
+          <div class="n"></div>
+          <h3>Foglaljon időpontot</h3>
+          <p>Válasszon egy Önnek megfelelő időpontot online. A kampány januárban indul,
+          a helyek korlátozottak.</p>
+        </div>
+        <div class="step-c">
+          <div class="n"></div>
+          <h3>Fogadja szakértőnket</h3>
+          <p>A megbeszélt időpontban szakértőnk felkeresi otthonát, és a helyszínen
+          végigmegy az összes lényeges feltételen.</p>
+        </div>
+        <div class="step-c">
+          <div class="n"></div>
+          <h3>Kapja meg a listát</h3>
+          <p>A végén átadunk egy személyre szabott teendőlistát, amelynek elvégzésével
+          biztosítása érvényessége garantált.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="block" id="ellenorzes">
+    <div class="wrap check-grid">
+      <div class="check-panel">
+        <ul>
+          <li><span class="cb">✓</span> Földszinti ablakok rácsozása, nyílászárók védelme</li>
+          <li><span class="cb">✓</span> Bejárati ajtó zárainak biztonsági szintje</li>
+          <li><span class="cb">✓</span> Riasztó- és tűzjelző rendszer megléte, állapota</li>
+          <li><span class="cb">✓</span> Tetőszerkezet és ereszcsatorna állapota</li>
+          <li><span class="cb">✓</span> Elektromos hálózat és biztosítótábla állapota</li>
+          <li><span class="cb">✓</span> Gáz- és vízvezetékek megfelelősége</li>
+          <li><span class="cb">✓</span> Kerítés, kapuk és melléképületek zárhatósága</li>
+          <li><span class="cb">✓</span> Értéktárgyak tárolásának körülményei</li>
+        </ul>
+      </div>
+      <div class="check-copy">
+        <p class="eyebrow" style="text-align:left">Mit ellenőrzünk</p>
+        <h2>Pontról pontra, semmit nem hagyunk figyelmen kívül</h2>
+        <p>
+          Szakértőnk a teljes ingatlant átvilágítja, az alábbiakhoz hasonló szempontok
+          szerint. A pontos lista mindig az Ön konkrét kötvényének feltételeihez igazodik,
+          így valóban személyre szabott képet kap.
+        </p>
+        <p class="micro">A felsorolás tájékoztató jellegű; a végleges ellenőrzési lista kötvényenként eltérhet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="block timeline">
+    <div class="wrap">
+      <p class="eyebrow">Ütemterv</p>
+      <h2 class="section-title">Mi várható és mikor?</h2>
+      <p class="section-sub">Az indulás közeleg – a korai foglalók biztosan ingyenes felmérést kapnak.</p>
+      <div class="tl">
+        <div class="tl-c">
+          <span class="when">Január · Kampány</span>
+          <h3>Kampányindulás</h3>
+          <p>Tájékoztatjuk meglévő ügyfeleinket, és megnyitjuk az online időpontfoglalást.</p>
+        </div>
+        <div class="tl-c">
+          <span class="when">Február 1. · Indulás</span>
+          <h3>A szolgáltatás elindul</h3>
+          <p>Szakértőink megkezdik a helyszíni felméréseket – induláskor díjmentesen.</p>
+        </div>
+        <div class="tl-c">
+          <span class="when">Korlátozott helyek</span>
+          <h3>Ingyenes, amíg tart</h3>
+          <p>A felmérés a szabad kapacitás erejéig ingyenes, ezért érdemes minél előbb foglalni.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="gyik">
+    <div class="wrap">
+      <p class="eyebrow">Gyakori kérdések</p>
+      <h2 class="section-title">Amit a felmérésről tudni érdemes</h2>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>Tényleg ingyenes a felmérés?</summary>
+          <p>Igen. Az induló időszakban a helyszíni felmérés díjmentes, a szabad helyek
+          számának beteléséig. Az időpontfoglalás semmilyen kötelezettséget nem von maga után.</p>
+        </details>
+        <details class="faq">
+          <summary>Kinek szól a szolgáltatás?</summary>
+          <p>Elsősorban az Alfa Biztosító meglévő otthonbiztosítással rendelkező
+          ügyfeleinek, akik biztosak szeretnének lenni abban, hogy kötvényük kár
+          esetén is helytáll.</p>
+        </details>
+        <details class="faq">
+          <summary>Mennyi ideig tart egy felmérés?</summary>
+          <p>Az ingatlan méretétől függően jellemzően 1–2 óra. Szakértőnk a helyszínen
+          végigmegy minden lényeges feltételen, és válaszol a kérdéseire.</p>
+        </details>
+        <details class="faq">
+          <summary>Mi történik a felmérés után?</summary>
+          <p>Átadunk egy érthető, személyre szabott teendőlistát. Ha a listán szereplő
+          pontokat rendezi, biztosítása a kötvényfeltételeknek megfelelően érvényes marad.</p>
+        </details>
+        <details class="faq">
+          <summary>Kötelező bármit elvégeztetnem?</summary>
+          <p>Nem. A lista ajánlás: Ön dönti el, mit és mikor old meg. Célunk, hogy
+          tisztában legyen a kockázatokkal, mielőtt baj történne.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking" id="foglalas">
+    <div class="wrap">
+      <div class="booking-card">
+        <h2>Foglaljon ingyenes időpontot szakértőnkkel</h2>
+        <p>
+          Tudja meg néhány kattintással, megfelel-e otthona a biztosítási feltételeknek –
+          egyszerűen, gyorsan, kötelezettség nélkül.
+        </p>
+        <div class="booking-actions">
+          <button type="button" class="btn btn-light" id="bookBtn">📅 Időpont foglalása</button>
+        </div>
+        <div class="toast" id="bookToast">
+          Köszönjük az érdeklődést! Az online időpontfoglalás a kampány indulásával,
+          januárban nyílik meg. Addig is figyelje postaládáját és e-mailjeit.
+        </div>
+        <div class="price-note">💡 Jelenleg <strong>&nbsp;ingyenes&nbsp;</strong> – a szabad helyek számának beteléséig</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a class="brand" href="#">
+            <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M50 6 12 22v26c0 24 16 38 38 46 22-8 38-22 38-46V22z" fill="#fff"/>
+              <path d="M38 50l9 9 18-20" fill="none" stroke="#ffb23e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="color:#fff">Alfa Biztosító</span>
+          </a>
+          <p>Ingyenes, helyszíni otthonfelmérés, hogy biztosítása ne csak papíron,
+          hanem a valóságban is érvényes legyen.</p>
+          <span class="working-title">A szolgáltatás neve hamarosan érkezik · munkacím: Otthonfelmérés</span>
+        </div>
+        <div class="foot-cols">
+          <div>
+            <h5>Szolgáltatás</h5>
+            <a href="#miert">Miért fontos</a>
+            <a href="#folyamat">Hogyan működik</a>
+            <a href="#ellenorzes">Mit ellenőrzünk</a>
+            <a href="#gyik">GYIK</a>
+          </div>
+          <div>
+            <h5>Foglalás</h5>
+            <a href="#foglalas">Időpontfoglalás</a>
+            <a href="#foglalas">Ingyenes felmérés</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 Alfa Biztosító. Minden jog fenntartva.</span>
+        <span>Ez egy bemutató mikrosite – a végleges termékkommunikáció ettől eltérhet.</span>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    // Az időpontfoglalás még nincs implementálva – a gomb egyelőre csak jelzést ad.
+    (function () {
+      var btn = document.getElementById('bookBtn');
+      var toast = document.getElementById('bookToast');
+      if (btn && toast) {
+        btn.addEventListener('click', function () {
+          toast.classList.add('show');
+          toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
