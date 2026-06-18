@@ -6,17 +6,17 @@
 <title>Alfa Biztosító – Otthonbiztonsági Szakértői Ellenőrzés</title>
 <style>
   :root{
-    --alfa:#0a3d62;
-    --alfa-light:#1e6091;
+    --alfa:#4a1d96;
+    --alfa-light:#7c3aed;
     --accent:#f4a900;
     --accent-dark:#d99400;
-    --bg:#f5f7fa;
-    --text:#1c2733;
-    --muted:#5a6b7b;
+    --bg:#f6f4fb;
+    --text:#241b33;
+    --muted:#6b6280;
     --white:#ffffff;
     --ok:#2e9e5b;
     --radius:16px;
-    --shadow:0 10px 30px rgba(10,61,98,.12);
+    --shadow:0 10px 30px rgba(74,29,150,.14);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -45,12 +45,11 @@
     display:flex;align-items:center;justify-content:space-between;
     height:66px;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--alfa);font-size:1.15rem;letter-spacing:-.3px;}
-  .brand .mark{
-    width:34px;height:34px;border-radius:9px;
-    background:linear-gradient(135deg,var(--alfa),var(--alfa-light));
-    color:#fff;display:grid;place-items:center;font-weight:900;font-size:1.1rem;
-  }
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;color:var(--alfa);font-size:1.18rem;letter-spacing:-.3px;}
+  .brand svg{display:block;width:38px;height:38px;flex:0 0 auto;}
+  .brand .wm{display:flex;flex-direction:column;line-height:1.05;}
+  .brand .wm b{font-weight:800;}
+  .brand .wm small{font-weight:600;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--alfa-light);}
   .nav-cta{
     background:var(--accent);color:#1c2733;font-weight:700;
     padding:10px 18px;border-radius:999px;text-decoration:none;font-size:.92rem;
@@ -133,10 +132,10 @@
     border:1px solid #eef2f6;
     transition:transform .18s ease, box-shadow .18s ease;
   }
-  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,61,98,.16);}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(74,29,150,.18);}
   .card .ico{
     width:52px;height:52px;border-radius:13px;
-    background:linear-gradient(135deg,#eaf2fb,#dceafa);
+    background:linear-gradient(135deg,#f0e9fb,#e4d8f9);
     display:grid;place-items:center;font-size:1.5rem;margin-bottom:16px;
   }
   .card h3{font-size:1.18rem;color:var(--alfa);margin-bottom:8px;font-weight:700;}
@@ -155,14 +154,14 @@
     width:42px;height:42px;border-radius:12px;
     background:linear-gradient(135deg,var(--alfa),var(--alfa-light));
     color:#fff;font-weight:800;font-size:1.2rem;display:grid;place-items:center;
-    box-shadow:0 6px 16px rgba(10,61,98,.35);
+    box-shadow:0 6px 16px rgba(74,29,150,.35);
   }
   .step h3{margin:14px 0 6px;color:var(--alfa);font-size:1.1rem;}
   .step p{color:var(--muted);font-size:.95rem;}
 
   /* CHECKLIST */
   .check-wrap{
-    background:linear-gradient(160deg,#0a3d62,#13496f);
+    background:linear-gradient(160deg,#4a1d96,#6d28d9);
     border-radius:24px;padding:46px;color:#fff;
     box-shadow:var(--shadow);
   }
@@ -204,7 +203,7 @@
   /* FAQ */
   .faq-item{
     background:#fff;border:1px solid #eef2f6;border-radius:14px;
-    margin-bottom:14px;overflow:hidden;box-shadow:0 4px 14px rgba(10,61,98,.06);
+    margin-bottom:14px;overflow:hidden;box-shadow:0 4px 14px rgba(74,29,150,.07);
   }
   .faq-q{
     width:100%;text-align:left;background:none;border:none;cursor:pointer;
@@ -217,7 +216,7 @@
   .faq-a p{padding:0 22px 20px;color:var(--muted);}
 
   /* FOOTER */
-  footer{background:#082e49;color:rgba(255,255,255,.75);padding:46px 0 30px;margin-top:10px;}
+  footer{background:#2a1252;color:rgba(255,255,255,.75);padding:46px 0 30px;margin-top:10px;}
   .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
   footer .brand{color:#fff;}
   footer .brand .mark{background:rgba(255,255,255,.15);}
@@ -251,7 +250,20 @@
 
 <header>
   <div class="container nav">
-    <div class="brand"><span class="mark">α</span> Alfa Biztosító</div>
+    <div class="brand">
+      <svg viewBox="0 0 48 48" role="img" aria-label="Alfa Biztosító logó">
+        <defs>
+          <linearGradient id="alfaG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7c3aed"/>
+            <stop offset="1" stop-color="#4a1d96"/>
+          </linearGradient>
+        </defs>
+        <path d="M24 2 L43 9 V23 C43 35 34 43.5 24 46.5 C14 43.5 5 35 5 23 V9 Z" fill="url(#alfaG)"/>
+        <path d="M24 2 L43 9 V23 C43 35 34 43.5 24 46.5 C14 43.5 5 35 5 23 V9 Z" fill="none" stroke="#f4a900" stroke-width="1.6" opacity=".9"/>
+        <text x="24" y="31" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="800" fill="#fff">α</text>
+      </svg>
+      <span class="wm"><b>Alfa</b><small>Biztosító</small></span>
+    </div>
     <a href="#foglalas" class="nav-cta">Időpontfoglalás</a>
   </div>
 </header>
@@ -299,7 +311,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="block" id="hogyan" style="background:#eef3f8;">
+<section class="block" id="hogyan" style="background:#efe9fa;">
   <div class="container">
     <div class="reveal">
       <div class="eyebrow">Egyszerű folyamat</div>
@@ -348,7 +360,7 @@
 </section>
 
 <!-- TIMELINE -->
-<section class="block" style="background:#eef3f8;">
+<section class="block" style="background:#efe9fa;">
   <div class="container">
     <div class="reveal">
       <div class="eyebrow">Időzítés</div>
@@ -383,7 +395,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="block" style="background:#eef3f8;">
+<section class="block" style="background:#efe9fa;">
   <div class="container" style="max-width:780px;">
     <div class="reveal">
       <div class="eyebrow">Kérdések</div>
@@ -414,7 +426,13 @@
 <footer>
   <div class="container">
     <div class="foot-grid">
-      <div class="brand"><span class="mark">α</span> Alfa Biztosító</div>
+      <div class="brand">
+        <svg viewBox="0 0 48 48" role="img" aria-label="Alfa Biztosító logó">
+          <path d="M24 2 L43 9 V23 C43 35 34 43.5 24 46.5 C14 43.5 5 35 5 23 V9 Z" fill="rgba(255,255,255,.12)" stroke="#f4a900" stroke-width="1.6" opacity=".95"/>
+          <text x="24" y="31" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="800" fill="#fff">α</text>
+        </svg>
+        <span class="wm" style="color:#fff;"><b>Alfa</b><small style="color:rgba(255,255,255,.65);">Biztosító</small></span>
+      </div>
       <p class="foot-note">Otthonbiztonsági szakértői ellenőrzés — hogy a biztosítása akkor is fizessen, amikor a legnagyobb szükség van rá.</p>
     </div>
     <div class="foot-bottom">© 2026 Alfa Biztosító. Minden jog fenntartva. • A szolgáltatás 2026. február 1-jétől érhető el.</div>
